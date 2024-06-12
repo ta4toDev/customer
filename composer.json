@@ -1,0 +1,12 @@
+{
+    "require-dev": {
+        "symfony/maker-bundle": "^1.59"
+    },
+    "require": {
+        "symfony/form": "^7.1",
+        "symfony/validator": "^7.1",
+        "symfony/twig-bundle": "^7.1",
+        "symfony/orm-pack": "^2.4",
+        "symfony/webpack-encore-bundle": "^2.1"
+    }
+}

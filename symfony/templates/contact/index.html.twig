@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+    <h1>Contact</h1>
+
+    <table class="table" style="width: 100%;border: 1px solid black;font-family: 'Arial', sans-serif;">
+        <thead>
+        <tr style="background-color: mediumseagreen;">
+            <th>Id</th>
+            <th>Salutation</th>
+            <th>First_name</th>
+            <th>Last_name</th>
+            <th>Street</th>
+            <th>House_number</th>
+            <th>City</th>
+            <th>Postal_code</th>
+            <th>Email</th>
+            <th>Company</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for contact in contacts %}
+            <tr>
+                <td>{{ contact.id }}</td>
+                <td>{{ contact.salutation }}</td>
+                <td>{{ contact.firstName }}</td>
+                <td>{{ contact.lastName }}</td>
+                <td>{{ contact.street }}</td>
+                <td>{{ contact.houseNumber }}</td>
+                <td>{{ contact.city }}</td>
+                <td>{{ contact.postalCode }}</td>
+                <td>{{ contact.email }}</td>
+                <td>{{ contact.company.companyName }}</td>
+                <td>
+                    <a href="{{ path('app_contact_show', {'id': contact.id}) }}" class="show-button">show</a>
+                    <a href="{{ path('app_contact_edit', {'id': contact.id}) }}" class="edit-button">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_contact_new') }}" class="create-button">Create new</a>
+{% endblock %}

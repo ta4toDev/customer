@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Company{% endblock %}
+
+{% block body %}
+    <h1>Company</h1>
+
+    <table class="table" style="width: 100%;border: 1px solid black;font-family: 'Arial', sans-serif;">
+        <thead>
+        <tr style="background-color: mediumseagreen;">
+            <th>Id</th>
+            <th>Company_name</th>
+            <th>Street</th>
+            <th>House_number</th>
+            <th>City</th>
+            <th>PostalCode</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for company in companies %}
+            <tr>
+                <td>{{ company.id }}</td>
+                <td>{{ company.companyName }}</td>
+                <td>{{ company.street }}</td>
+                <td>{{ company.houseNumber }}</td>
+                <td>{{ company.city }}</td>
+                <td>{{ company.postalCode }}</td>
+                <td>
+                    <a href="{{ path('app_company_show', {'id': company.id}) }}" class="show-button">show</a>
+                    <a href="{{ path('app_company_edit', {'id': company.id}) }}" class="edit-button">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_company_new') }}" class="create-button">Create new</a>
+{% endblock %}

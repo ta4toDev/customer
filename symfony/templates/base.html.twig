@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        <style>
+            .form-row {
+                display: flex;
+                margin-bottom: 15px;
+            }
+            .form-label {
+                flex-basis: 20%;
+                padding-right: 10px;
+                text-align: right;
+                font-weight: bold;
+            }
+            .form-input {
+                flex-grow: 1;
+            }
+            input, textarea, select {
+                width: 100%;
+                padding: 8px;
+                box-sizing: border-box;
+            }
+            button {
+                padding: 10px 20px;
+                background-color: #007BFF;
+                color: white;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #0056b3;
+            }
+            .back-button, .edit-button, .show-button, .create-button {
+                display: inline-block;
+                padding: 8px 15px;
+                margin-top: 10px;
+                background-color: #6db85a;
+                color: white;
+                text-decoration: none;
+                border-radius: 5px;
+                font-weight: bold;
+            }
+
+            .back-button:hover, .edit-button:hover, .show-button:hover, .create-button:hover{
+                background-color: #2d7738;
+                color: white;
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+</html>
