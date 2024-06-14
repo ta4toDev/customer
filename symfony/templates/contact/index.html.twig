@@ -5,17 +5,17 @@
 {% block body %}
     <h1>Contact</h1>
 
-    <table class="table" style="width: 100%;border: 1px solid black;font-family: 'Arial', sans-serif;">
+    <table class="table table-bordered table-striped">
         <thead>
-        <tr style="background-color: mediumseagreen;">
+        <tr>
             <th>Id</th>
             <th>Salutation</th>
-            <th>First_name</th>
-            <th>Last_name</th>
+            <th>First Name</th>
+            <th>Last Name</th>
             <th>Street</th>
-            <th>House_number</th>
+            <th>House Number</th>
             <th>City</th>
-            <th>Postal_code</th>
+            <th>Postal Code</th>
             <th>Email</th>
             <th>Company</th>
             <th>Actions</th>
@@ -35,17 +35,20 @@
                 <td>{{ contact.email }}</td>
                 <td>{{ contact.company.companyName }}</td>
                 <td>
-                    <a href="{{ path('app_contact_show', {'id': contact.id}) }}" class="show-button">show</a>
-                    <a href="{{ path('app_contact_edit', {'id': contact.id}) }}" class="edit-button">edit</a>
+                    <a href="{{ path('app_contact_show', {'id': contact.id}) }}" class="btn btn-info btn-sm">Show</a>
+                    <a href="{{ path('app_contact_edit', {'id': contact.id}) }}" class="btn btn-warning btn-sm">Edit</a>
+
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="11">no records found</td>
+                <td colspan="11">No records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_contact_new') }}" class="create-button">Create new</a>
+    <a href="{{ path('app_contact_new') }}" class="btn btn-success">Create new</a>
+    <a href="{{ path('app_company_index') }}" class="btn btn-primary">Zurück zur Firmenliste</a>
 {% endblock %}
+

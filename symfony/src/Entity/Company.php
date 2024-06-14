@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CompanyRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CompanyRepository::class)]
@@ -28,6 +30,14 @@ class Company
     #[ORM\Column(length: 30)]
     private ?string $postalCode = null;
 
+    #[ORM\OneToMany(mappedBy: 'company', targetEntity: Contact::class, cascade: ['remove'])]
+    private Collection $contacts;
+
+    public function __construct()
+    {
+        $this->contacts = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -41,6 +51,7 @@ class Company
     public function setCompanyName(string $companyName): self
     {
         $this->companyName = $companyName;
+
         return $this;
     }
 
@@ -52,6 +63,7 @@ class Company
     public function setStreet(string $street): self
     {
         $this->street = $street;
+
         return $this;
     }
 
@@ -63,6 +75,7 @@ class Company
     public function setHouseNumber(string $houseNumber): self
     {
         $this->houseNumber = $houseNumber;
+
         return $this;
     }
 
@@ -74,6 +87,7 @@ class Company
     public function setCity(string $city): self
     {
         $this->city = $city;
+
         return $this;
     }
 
@@ -85,6 +99,37 @@ class Company
     public function setPostalCode(string $postalCode): self
     {
         $this->postalCode = $postalCode;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Contact>
+     */
+    public function getContacts(): Collection
+    {
+        return $this->contacts;
+    }
+
+    public function addContact(Contact $contact): self
+    {
+        if (!$this->contacts->contains($contact)) {
+            $this->contacts[] = $contact;
+            $contact->setCompany($this);
+        }
+
+        return $this;
+    }
+
+    public function removeContact(Contact $contact): self
+    {
+        if ($this->contacts->removeElement($contact)) {
+            // set the owning side to null (unless already changed)
+            if ($contact->getCompany() === $this) {
+                $contact->setCompany(null);
+            }
+        }
+
         return $this;
     }
 }

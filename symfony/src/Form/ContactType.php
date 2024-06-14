@@ -13,7 +13,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ContactType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options) :void
     {
         $builder
             ->add('salutation', TextType::class)
@@ -27,11 +27,15 @@ class ContactType extends AbstractType
             ->add('company', EntityType::class, [
                 'class' => Company::class,
                 'choice_label' => 'companyName',
+                'required' => false,
+                'empty_data' => null,
             ])
-            ->add('save', SubmitType::class, ['label' => 'Create Contact']);
+            ->add('save', SubmitType::class, ['label' => 'Create Contact',
+                'attr' => ['class' => 'btn-success']
+            ]);
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver) :void
     {
         $resolver->setDefaults([
             'data_class' => Contact::class,

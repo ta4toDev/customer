@@ -5,42 +5,37 @@
 {% block body %}
     <h1>Company</h1>
 
-    <table class="table">
+    <table class="table table-bordered">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ company.id }}</td>
-            </tr>
-            <tr>
-                <th>Company_name</th>
-                <td>{{ company.companyName }}</td>
-            </tr>
-            <tr>
-                <th>Company_id</th>
-                <td>{{ company.companyId }}</td>
-            </tr>
-            <tr>
-                <th>Street</th>
-                <td>{{ company.street }}</td>
-            </tr>
-            <tr>
-                <th>House_number</th>
-                <td>{{ company.houseNumber }}</td>
-            </tr>
-            <tr>
-                <th>City</th>
-                <td>{{ company.city }}</td>
-            </tr>
-            <tr>
-                <th>PostalCode</th>
-                <td>{{ company.postalCode }}</td>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <td>{{ company.id }}</td>
+        </tr>
+        <tr>
+            <th>Company Name</th>
+            <td>{{ company.companyName }}</td>
+        </tr>
+        <tr>
+            <th>Street</th>
+            <td>{{ company.street }}</td>
+        </tr>
+        <tr>
+            <th>House Number</th>
+            <td>{{ company.houseNumber }}</td>
+        </tr>
+        <tr>
+            <th>City</th>
+            <td>{{ company.city }}</td>
+        </tr>
+        <tr>
+            <th>Postal Code</th>
+            <td>{{ company.postalCode }}</td>
+        </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_company_index') }}" class="back-button">back to list</a>
+    <a href="{{ path('app_company_index') }}" class="btn btn-secondary">Back to list</a>
+    <a href="{{ path('app_company_edit', {'id': company.id}) }}" class="btn btn-primary">Edit</a>
 
-    <a href="{{ path('app_company_edit', {'id': company.id}) }}"class="edit-button">edit</a>
-
-    {{ include('company/_delete_form.html.twig') }}
+    {{ include('company/_delete_form.html.twig', {'company': company}) }}
 {% endblock %}
