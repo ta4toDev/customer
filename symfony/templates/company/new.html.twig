@@ -3,9 +3,11 @@
 {% block title %}New Company{% endblock %}
 
 {% block body %}
-    <h1>Create new Company</h1>
+    <div class="container">
+        <h1>Create new Company</h1>
 
-    {{ include('company/_form.html.twig', {'button_label': 'Create'}) }}
+        {{ include('company/_form.html.twig', {'form': form, 'button_label': 'Create'}) }}
 
-    <a href="{{ path('app_company_index') }}" class="btn btn-secondary">Back to list</a>
+        <a href="{{ path('app_company_index') }}" class="btn btn-secondary mt-3">Back to list</a>
+    </div>
 {% endblock %}

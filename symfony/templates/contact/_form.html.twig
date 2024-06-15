@@ -1,5 +1,70 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-<button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+<div class="form-group row">
+    {{ form_label(form.salutation, 'Salutation', {'label_attr': {'class': 'col-sm-2 col-form-label'}}) }}
+    <div class="col-sm-10">
+        {{ form_widget(form.salutation, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.salutation) }}
+    </div>
+</div>
+<div class="form-group row">
+    {{ form_label(form.firstName, 'First Name', {'label_attr': {'class': 'col-sm-2 col-form-label'}}) }}
+    <div class="col-sm-10">
+        {{ form_widget(form.firstName, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.firstName) }}
+    </div>
+</div>
+<div class="form-group row">
+    {{ form_label(form.lastName, 'Last Name', {'label_attr': {'class': 'col-sm-2 col-form-label'}}) }}
+    <div class="col-sm-10">
+        {{ form_widget(form.lastName, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.lastName) }}
+    </div>
+</div>
+<div class="form-group row">
+    {{ form_label(form.street, 'Street', {'label_attr': {'class': 'col-sm-2 col-form-label'}}) }}
+    <div class="col-sm-10">
+        {{ form_widget(form.street, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.street) }}
+    </div>
+</div>
+<div class="form-group row">
+    {{ form_label(form.houseNumber, 'House Number', {'label_attr': {'class': 'col-sm-2 col-form-label'}}) }}
+    <div class="col-sm-10">
+        {{ form_widget(form.houseNumber, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.houseNumber) }}
+    </div>
+</div>
+<div class="form-group row">
+    {{ form_label(form.city, 'City', {'label_attr': {'class': 'col-sm-2 col-form-label'}}) }}
+    <div class="col-sm-10">
+        {{ form_widget(form.city, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.city) }}
+    </div>
+</div>
+<div class="form-group row">
+    {{ form_label(form.postalCode, 'Postal Code', {'label_attr': {'class': 'col-sm-2 col-form-label'}}) }}
+    <div class="col-sm-10">
+        {{ form_widget(form.postalCode, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.postalCode) }}
+    </div>
+</div>
+<div class="form-group row">
+    {{ form_label(form.email, 'Email', {'label_attr': {'class': 'col-sm-2 col-form-label'}}) }}
+    <div class="col-sm-10">
+        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.email) }}
+    </div>
+</div>
+<div class="form-group row">
+    {{ form_label(form.company, 'Company', {'label_attr': {'class': 'col-sm-2 col-form-label'}}) }}
+    <div class="col-sm-10">
+        {{ form_widget(form.company, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.company) }}
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-sm-10 offset-sm-2">
+        <button type="submit" class="btn btn-primary">{{ button_label|default('Save') }}</button>
+    </div>
+</div>
 {{ form_end(form) }}
-
