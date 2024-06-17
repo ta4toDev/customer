@@ -35,9 +35,10 @@
                 <td>{{ contact.email }}</td>
                 <td>{{ contact.company.companyName }}</td>
                 <td>
-                    <a href="{{ path('app_contact_show', {'id': contact.id}) }}" class="btn btn-info btn-sm">Show</a>
-                    <a href="{{ path('app_contact_edit', {'id': contact.id}) }}" class="btn btn-warning btn-sm">Edit</a>
-
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a href="{{ path('app_contact_show', {'id': contact.id}) }}" class="btn btn-info btn-sm">Show</a>
+                        <a href="{{ path('app_contact_edit', {'id': contact.id}) }}" class="btn btn-warning btn-sm">Edit</a>
+                    </div>
                 </td>
             </tr>
         {% else %}
@@ -47,8 +48,10 @@
         {% endfor %}
         </tbody>
     </table>
-
+<div class="mb-3">
     <a href="{{ path('app_contact_new') }}" class="btn btn-success">Create new</a>
     <a href="{{ path('app_company_index') }}" class="btn btn-primary">Zurück zur Firmenliste</a>
+</div>
+
 {% endblock %}
 

@@ -27,9 +27,10 @@
                 <td>{{ company.city }}</td>
                 <td>{{ company.postalCode }}</td>
                 <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
                     <a href="{{ path('app_company_show', {'id': company.id}) }}" class="btn btn-info btn-sm">Show</a>
                     <a href="{{ path('app_company_edit', {'id': company.id}) }}" class="btn btn-warning btn-sm">Edit</a>
-
+                    </div>
                 </td>
             </tr>
         {% else %}
@@ -39,6 +40,8 @@
         {% endfor %}
         </tbody>
     </table>
-
+<div class="mb-3">
     <a href="{{ path('app_company_new') }}" class="btn btn-success">Create new</a>
+</div>
+
 {% endblock %}

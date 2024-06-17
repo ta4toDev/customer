@@ -5,9 +5,7 @@
 {% block body %}
     <div class="container">
         <h1>Create new Company</h1>
-
         {{ include('company/_form.html.twig', {'form': form, 'button_label': 'Create'}) }}
-
         <a href="{{ path('app_company_index') }}" class="btn btn-secondary mt-3">Back to list</a>
     </div>
 {% endblock %}

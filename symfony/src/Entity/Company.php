@@ -6,6 +6,7 @@ use App\Repository\CompanyRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CompanyRepository::class)]
 class Company
@@ -16,18 +17,28 @@ class Company
     private ?int $id = null;
 
     #[ORM\Column(length: 30)]
+    #[Assert\NotBlank]
+    #[Assert\Length(min: 1, max: 30)]
     private ?string $companyName = null;
 
     #[ORM\Column(length: 30)]
+    #[Assert\NotBlank]
+    #[Assert\Length(min: 1, max: 30)]
     private ?string $street = null;
 
     #[ORM\Column(length: 10)]
+    #[Assert\NotBlank]
+    #[Assert\Length(min: 1, max: 10)]
     private ?string $houseNumber = null;
 
     #[ORM\Column(length: 30)]
+    #[Assert\NotBlank]
+    #[Assert\Length(min: 1, max: 30)]
     private ?string $city = null;
 
     #[ORM\Column(length: 30)]
+    #[Assert\NotBlank]
+    #[Assert\Length(min: 1, max: 30)]
     private ?string $postalCode = null;
 
     #[ORM\OneToMany(mappedBy: 'company', targetEntity: Contact::class, cascade: ['remove'])]
@@ -124,7 +135,6 @@ class Company
     public function removeContact(Contact $contact): self
     {
         if ($this->contacts->removeElement($contact)) {
-            // set the owning side to null (unless already changed)
             if ($contact->getCompany() === $this) {
                 $contact->setCompany(null);
             }
