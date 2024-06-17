@@ -31,14 +31,14 @@ class ContactController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($contact);
-            $entityManager->flush(); // Diese Zeile wurde aktiviert
+            $entityManager->flush();
 
             return $this->redirectToRoute('app_contact_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('contact/new.html.twig', [
             'contact' => $contact,
-            'form' => $form,
+            'form' => $form->createView(),
         ]);
     }
 

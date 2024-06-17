@@ -38,7 +38,7 @@ class Contact
     private ?string $email = null;
 
     #[ORM\ManyToOne(targetEntity: Company::class)]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Company $company = null;
 
     public function getId(): ?int

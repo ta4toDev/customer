@@ -28,7 +28,7 @@ class ContactType extends AbstractType
                 'class' => Company::class,
                 'choice_label' => 'companyName',
                 'required' => false,
-                'empty_data' => null,
+                'placeholder' => 'Select a Company'
             ])
             ->add('save', SubmitType::class, ['label' => 'Create Contact',
                 'attr' => ['class' => 'btn-success']
