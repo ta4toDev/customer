@@ -1,19 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Company{% endblock %}
+{% block title %}Company List{% endblock %}
 
 {% block body %}
-    <h1>Company</h1>
+    <h1>Company List</h1>
 
-    <table class="table" style="width: 100%;border: 1px solid black;font-family: 'Arial', sans-serif;">
+    <table class="table table-bordered table-striped">
         <thead>
-        <tr style="background-color: mediumseagreen;">
-            <th>Id</th>
-            <th>Company_name</th>
+        <tr>
+            <th>ID</th>
+            <th>Company Name</th>
             <th>Street</th>
-            <th>House_number</th>
+            <th>House Number</th>
             <th>City</th>
-            <th>PostalCode</th>
+            <th>Postal Code</th>
             <th>Actions</th>
         </tr>
         </thead>
@@ -27,17 +27,21 @@
                 <td>{{ company.city }}</td>
                 <td>{{ company.postalCode }}</td>
                 <td>
-                    <a href="{{ path('app_company_show', {'id': company.id}) }}" class="show-button">show</a>
-                    <a href="{{ path('app_company_edit', {'id': company.id}) }}" class="edit-button">edit</a>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                    <a href="{{ path('app_company_show', {'id': company.id}) }}" class="btn btn-info btn-sm">Show</a>
+                    <a href="{{ path('app_company_edit', {'id': company.id}) }}" class="btn btn-warning btn-sm">Edit</a>
+                    </div>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="7">No records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+<div class="mb-3">
+    <a href="{{ path('app_company_new') }}" class="btn btn-success">Create new</a>
+</div>
 
-    <a href="{{ path('app_company_new') }}" class="create-button">Create new</a>
 {% endblock %}

@@ -38,7 +38,7 @@ class CompanyController extends AbstractController
 
         return $this->render('company/new.html.twig', [
             'company' => $company,
-            'form' => $form,
+            'form' => $form->createView(),
         ]);
     }
 
@@ -64,14 +64,14 @@ class CompanyController extends AbstractController
 
         return $this->render('company/edit.html.twig', [
             'company' => $company,
-            'form' => $form,
+            'form' => $form->createView(),
         ]);
     }
 
     #[Route('/{id}', name: 'app_company_delete', methods: ['POST'])]
     public function delete(Request $request, Company $company, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $company->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$company->getId(), $request->request->get('_token'))) {
             $entityManager->remove($company);
             $entityManager->flush();
         }
