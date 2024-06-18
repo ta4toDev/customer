@@ -80,6 +80,15 @@
       <path value="$PROJECT_DIR$/symfony/vendor/symfony/security-csrf" />
       <path value="$PROJECT_DIR$/symfony/vendor/symfony/password-hasher" />
       <path value="$PROJECT_DIR$/symfony/vendor/twbs/bootstrap" />
+      <path value="$PROJECT_DIR$/symfony/vendor/psr/clock" />
+      <path value="$PROJECT_DIR$/symfony/vendor/symfony/security-bundle" />
+      <path value="$PROJECT_DIR$/symfony/vendor/symfony/clock" />
+      <path value="$PROJECT_DIR$/symfony/vendor/symfony/security-http" />
+      <path value="$PROJECT_DIR$/symfony/vendor/symfonycasts/verify-email-bundle" />
+      <path value="$PROJECT_DIR$/symfony/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/symfony/vendor/symfony/mailer" />
+      <path value="$PROJECT_DIR$/symfony/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/symfony/vendor/egulias/email-validator" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2">

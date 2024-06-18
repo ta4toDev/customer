@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/company')]
+#[Route('/admin/company')]
 class CompanyController extends AbstractController
 {
     #[Route('/', name: 'app_company_index', methods: ['GET'])]
@@ -34,6 +34,7 @@ class CompanyController extends AbstractController
             $entityManager->flush();
 
             return $this->redirectToRoute('app_company_index', [], Response::HTTP_SEE_OTHER);
+
         }
 
         return $this->render('company/new.html.twig', [
@@ -45,8 +46,10 @@ class CompanyController extends AbstractController
     #[Route('/{id}', name: 'app_company_show', methods: ['GET'])]
     public function show(Company $company): Response
     {
+        $contacts = $company->getContacts();
         return $this->render('company/show.html.twig', [
             'company' => $company,
+            'contacts' => $contacts,
         ]);
     }
 

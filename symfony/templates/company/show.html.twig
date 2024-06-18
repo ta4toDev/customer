@@ -34,7 +34,28 @@
         </tbody>
     </table>
 
+    <h2>Contacts</h2>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for contact in contacts %}
+            <tr>
+                <td>
+                    <a href="{{ path('app_contact_show', {'id': contact.id}) }}">{{ contact.firstName }} {{ contact.lastName }}</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="1">No contacts found for this company</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
     <a href="{{ path('app_company_index') }}" class="btn btn-secondary">Back to list</a>
-    <a href="{{ path('app_company_edit', {'id': company.id}) }}" class="btn btn-primary">Edit</a>
 
 {% endblock %}

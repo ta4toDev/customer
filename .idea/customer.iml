@@ -74,6 +74,15 @@
       <excludeFolder url="file://$MODULE_DIR$/symfony/vendor/symfony/yaml" />
       <excludeFolder url="file://$MODULE_DIR$/symfony/vendor/twig/twig" />
       <excludeFolder url="file://$MODULE_DIR$/symfony/vendor/twbs/bootstrap" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony/vendor/egulias/email-validator" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony/vendor/psr/clock" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony/vendor/symfony/clock" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony/vendor/symfony/mailer" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony/vendor/symfony/mime" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony/vendor/symfony/polyfill-intl-idn" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony/vendor/symfony/security-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony/vendor/symfony/security-http" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony/vendor/symfonycasts/verify-email-bundle" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
